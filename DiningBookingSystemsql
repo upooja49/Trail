@@ -1,0 +1,197 @@
+
+--creating table for customer and inserting data
+create SEQUENCE cus_Id start WITH 1;
+select cus_Id.nextval from dual;
+create table restaurant_Customer(customerName varchar(50)not null,customerId number primary key,customerAddress varchar(100),contactNumber number(10)not null unique,emailId varchar(20)unique);
+insert  into restaurant_customer(customername , customerid ,  customeraddress , contactnumber , emailid ) values('Pooja',cus_Id.nextval,'12,North Street Cuddalore-606105',9047325100,'poojaa@gmail.com');
+insert  into restaurant_customer(customername , customerid ,  customeraddress , contactnumber , emailid ) values('Karthik',cus_Id.nextval,'34C,South Street Tittagudi-606106',9047644234,'karthik50@gmail.com');
+insert  into restaurant_customer(customername , customerid  , customeraddress , contactnumber , emailid ) values('Pranav',cus_Id.nextval,'1/6G krishna Nagar Chennai-600095',8618616144,'pranav007@gmail.com');
+insert  into restaurant_customer(customername , customerid ,  customeraddress , contactnumber , emailid ) values('Ram',cus_Id.nextval,'12,Balaji Nagar Cuddalore-606001',8681070055,'ram300@gmail.com');
+insert  into restaurant_customer(customername , customerid ,  customeraddress , contactnumber , emailid ) values('PoojaShri',cus_Id.nextval,'34/4 MGR Nagar Trichy-606102',8681070550,'sri@gmail.com');
+select * from restaurant_customer;
+select emailid from restaurant_customer;
+
+select customername , customerid ,  customeraddress , contactnumber , emailid from restaurant_customer where customername like '%P';
+commit;
+select customerid from restaurant_customer where contactnumber=8096724553;
+--drop table resCustomer;
+drop SEQUENCE cus_Id;
+select customername , customerid ,  customeraddress , contactnumber , emailid from restaurant_customer;
+
+-------------------------------------------------------------
+
+--table for restaurant(Admin)
+create sequence res_Id_seq start with 100;
+select res_Id_seq.nextval from dual;
+create table restaurant(resId number primary key,resName varchar(70) not null,resPassword varchar(10)not null);
+insert into restaurant(resId,resName,resPassword)VALUES(res_Id_seq.nextval,'SAAI@1234', 'saai1234');
+select * from restaurant;
+drop table restaurant;
+select resName,resPassword from restaurant;
+commit;
+------------------------------------------------------------------
+--table for employee of restaurant
+create SEQUENCE employee_Id_Seq start with 1111;
+create table employeeDetails(
+empId number primary key,
+empName varchar(50)not null,
+empPassword varchar(10)not null,
+empContactnumber number(10)not null,
+emailId varchar(50)not null,
+jobRole varchar(20) not null,
+basicSalary Number not null);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Suresh','Suresh@20',9850762431,'suresh90@gmail.com','Food Server',18000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Ramesh','ram@V12',9831456712,'ramesh001@gmail.com','Cook',25000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Santhosh','sanDy23@',9823219045,'santhosh@gmail.com','Sous chef',22000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Hari','Hari$2395',9612436131,'harihari@gmail.com','Food Server',18000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Prashanth','prashAn@1',6381807055,'prashanth03@gmail.com','Busser',12000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Krishna','krish@02',9850312987,'krishna02@gmail.com','Food Server',18000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Raja','Raja@123',9823423450,'Raja@gmail.com','Busser',12000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Avinash','Avi@8912',9245123563,'abinash2@gmail.com','Food Server',18000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'Vinoth','VIn$2395',9876543210,'vino23@gmail.com','Food Server',18000);
+insert INTO employeedetails(empId,empName,emppassword,empContactnumber,emailId,jobRole,basicsalary)values(EMPLOYEE_ID_SEQ.nextval,'NaveenRaj','Naveen@30',6381856008,'Naveen3@gmail.com','Cook',25000);
+
+
+select * from employeedetails;
+drop table employeeDetails;
+drop sequence employee_id;
+commit;
+
+------------------------------------------------------------------------------
+--table for listing dining details
+create SEQUENCE dining_Id start with 1000;
+create table  diningDetails(
+tableId number primary key,
+diningType varchar(10)not null,
+totalSeats number not null,
+diningAvailability varchar(10) not null);
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'AC',2,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'AC',4,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'AC',6,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'AC',8,'N');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'AC',10,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'AC',12,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'AC',15,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'NON-AC',2,'Y');
+
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'NON-AC',4,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'NON-AC',6,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'NON-AC',10,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'NON-AC',12,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'NON-AC',15,'Y');
+insert INTO diningDetails(tableId,diningType,totalSeats,diningAvailability)values(DINING_ID.nextval,'NON-AC',8,'Y');
+
+
+
+select  tableId,diningType,totalSeats from diningdetails where  diningAvailability='Y' and diningtype='AC' and totalSeats=3;
+select totalseats from diningDetails where tableid=1000;
+
+select * from diningDetails; where tableid=1000;
+--drop table diningdetails;
+--drop SEQUENCE dining_Id;
+--truncate table diningdetails;
+commit;
+select tableId from diningdetails where diningtype='AC' and diningAvailability='Y';
+-------------------------------------------------------------------------------------------------------------------------
+--table for food details
+create SEQUENCE food_id start with 101;
+create table foodDetails(
+foodId number primary key,
+foodCategory varchar(10) not null,
+foodName varchar(30) unique,
+price number not null);
+
+drop table foodDetails;
+insert into foodDetails(foodId,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Dosa',27);
+insert into foodDetails(foodId,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Idly',10);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Parotta',15);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Poori',27);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Pongal',30);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'NON-VEG','Kari Dosa',35);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'NON-VEG','Egg Dosa',30);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Veg-Biryani',50);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Sambar Rice',40);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Tomato Rice',35);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'NON-VEG','Chicken-rice',120);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'NON-VEG','Chicken-Noodles',110);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Mushroom Rice',90);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Mushroom noodles',80);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'NON-VEG','Chicken-Tikka',70);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'NON-VEG','Egg Rice',70);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'NON-VEG','Egg-Noodles',80);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Kobi Rice',130);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Roti with Gravy',50);
+insert into foodDetails(foodid,foodCategory,foodName,price)values(FOOD_ID.nextval,'VEG','Naan Roti(2)',20);
+--drop  table foodDetails;
+--drop sequence food_id_seq;
+select * from foodDetails;
+
+
+commit;
+--------------------------------------------------------------------------------------------------------------
+create sequence order_Id_Seq start with 500;
+create table DetailsOfOrder(
+order_Id number primary key,
+customerid number,
+customername varchar(50),
+tableId NUMBER,
+food_id number,
+foodName varchar(30),
+foodQuantity number not null,
+price number,
+CONSTRAINT order_Customer_fk FOREIGN KEY(customerid)REFERENCES restaurant_Customer,
+CONSTRAINT order_Table_fk FOREIGN KEY(tableId)REFERENCES diningdetails,
+CONSTRAINT order_Food_fk FOREIGN KEY(food_id)REFERENCES foodDetails);
+
+--drop table DetailsOfOrder;
+select DetailsOfOrder.order_Id, restaurant_Customer.customerid,restaurant_Customer.customername,diningdetails.tableId,foodDetails.foodid,fooddetails.foodname,
+DetailsOfOrder.foodQuantity,fooddetails.price
+From DetailsOfOrder
+inner join restaurant_Customer on
+detailsoforder.customerid=restaurant_Customer.customerid
+inner join diningdetails on
+detailsoforder.tableid=diningdetails.tableid
+inner join foodDetails on 
+detailsoforder.food_id=fooddetails.foodid;
+
+--insert into DetailsOfOrder(order_Id,customerid,tableId,food_id,foodQuantity,foodPrice) select customerid from resCustomer
+--inner join diningdetails on diningdetails.tableid=detailsoforder.tableid
+--inner join fooddetails on detailsoforder.food_id =fooddetails.food_id;
+
+--INSERT INTO Orders (id, userid, timestamp) 
+--SELECT Orders.id, Orders.userid, Orders.timestamp FROM Users INNER JOIN Orders ON  Orders.id = Users.id
+
+-----------------------------------------------------------------------------------------------------------------
+--table for booking details
+--create sequence book_Id start with 1;
+--drop SEQUENCE book_id;
+create table bookingRecords(
+bookingId number(4) GENERATED BY DEFAULT on null AS IDENTITY START WITH 101,
+customerName varchar(50),
+contactNumber number(10),
+bookingDate date,
+Lunch varchar(10),
+Dinner varchar(10),
+tableId number(5) not null,
+noOfSeats number(5) not null,
+diningType varchar(7) not null,
+foodId number(5),
+foodName varchar(30),
+foreign key(tableId)references diningDetails);
+
+insert into bookingRecords(customerName,contactNumber,bookingDate,Lunch,Dinner,diningType,tableId,noOfSeats,foodid,foodName)values('Pranav',8618616144,to_date('2023-01-20','YYYY-MM-DD'),'Booked','Available','AC',1003,6,201,'Dosa');
+select * from bookingRecords ;
+truncate table bookingRecords;
+--delete  bookingRecords where tableId=1010;
+--drop table bookingRecords;
+--SELECT *
+--FROM diningDetails
+--LEFT JOIN bookingRecords ON diningDetails.tableid = bookingRecords.tableid
+--WHERE bookingRecords.bookingDate='16-02-2023' and bookingRecords.bookingSession='dinner';
+
+commit;
+select tableid from diningDetails except select tableid from bookingRecords where dinner='Booked' and bookingDate='20-01-23'; 
+--drop table bookingRecords;
+
+select tableid ,totalSeats from diningDetails where diningtype='AC' and totalSeats>=7 except select tableid,diningType from bookingRecords where dinner='Booked' and bookingDate='02-03-23';
+--select bookingId from bookingRecords where contactNumber=8977709854 and  select(max(bookingdate='28-02-23') from bookingRecords) ;
